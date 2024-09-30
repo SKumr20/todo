@@ -3,6 +3,7 @@ import './styles.css';
 import { createTask } from './tasks';
 
 let taskId = 1;
+let remainingTasks = 1;
 
 //get all the elements
 
@@ -14,7 +15,7 @@ const cancelBtn = document.getElementById('cancelBtn');
 const taskNameInput = document.getElementById('taskName');
 
 
-indicator.innerHTML = taskId;
+indicator.innerHTML = remainingTasks;
 
 addTaskBtn.addEventListener('click', () => {
     taksInputPopup.classList.remove('hidden');
@@ -24,9 +25,10 @@ enterBtn.addEventListener('click', () => {
     const taskName = taskNameInput.value.trim();
 
     if (taskName) {
-        createTask(taskName, taskId);
+        createTask(taskName, taskId, updateIndicator);
         taskId++;
-        indicator.innerHTML = taskId;
+        remainingTasks++;
+        indicator.innerHTML = remainingTasks;
         
         // reset the values
         taskNameInput.value = '';
@@ -41,5 +43,21 @@ cancelBtn.addEventListener('click', () => {
     taksInputPopup.classList.add('hidden');
 });
 
+// updateIndicator - updates number of tasks indicator and marks the tasks as completed
+
+function updateIndicator(isChecked, label) {
+    if (isChecked) {
+        remainingTasks--;
+        label.style.textDecoration = 'line-through';
+        label.style.opacity = '0.4';
+    }
+    else {
+        remainingTasks++;
+        label.style.textDecoration = 'none';
+        label.style.opacity = '1';
+    }
+    indicator.innerHTML = remainingTasks;
+}
+
 // Initial loaded task
-createTask('Be Happy', 1);
+createTask('Be Happy, Dhrity', 1, updateIndicator);
