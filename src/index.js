@@ -60,4 +60,4 @@ function updateIndicator(isChecked, label) {
 }
 
 // Initial loaded task
-createTask('Be Happy, Dhrity', 1, updateIndicator);
+createTask('Be Happy', 1, updateIndicator);

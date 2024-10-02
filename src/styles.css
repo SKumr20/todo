@@ -1,3 +1,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+#taskContainer::-webkit-scrollbar {
+    width: 0.5rem;
+}
+
+#taskContainer::-webkit-scrollbar-thumb {
+    background-color: rgb(209 213 219);    /* color of the scroll thumb */
+    border-radius: 20px;       /* roundness of the scroll thumb */
+}
