@@ -1,4 +1,5 @@
 import './styles.css';
+import 'flowbite';
 
 import { createTask } from './tasks';
 

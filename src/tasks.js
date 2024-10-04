@@ -1,4 +1,7 @@
+import { timeModal } from "./time";
+
 // create a container div
+
 export function createTask(name, id, updateIndicator) {
 
     // Select taskContainer from HTML
@@ -31,6 +34,7 @@ export function createTask(name, id, updateIndicator) {
       </svg>
     `;
 
+
     // create cross button
     const removeTaskBtn = document.createElement('button');
     removeTaskBtn.className = 'text-xl font-extralight text-gray-500 hover:text-black hover:scale-110 ';
@@ -57,6 +61,11 @@ export function createTask(name, id, updateIndicator) {
         if (!checkbox.checked) {
             updateIndicator(true, label); // update the indicator 
         }
+    })
+
+    // add function for time button
+    timeBtn.addEventListener('click', () => {
+      timeModal(id);
     })
 }
 
