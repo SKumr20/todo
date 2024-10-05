@@ -62,3 +62,10 @@ function updateIndicator(isChecked, label) {
 
 // Initial loaded task
 createTask('Be Happy', 1, updateIndicator);
+
+// Profile dropdown button
+const profileBtn = document.getElementById('user-menu-button');
+profileBtn.addEventListener('click', () => {
+    const profileDropdown = document.getElementById('profile-dropdown');
+    profileDropdown.classList.toggle('hidden');
+})

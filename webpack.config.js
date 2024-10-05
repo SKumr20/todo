@@ -15,6 +15,10 @@ module.exports = {
         test: /\.css$/i,
         use: ['style-loader', 'css-loader', 'postcss-loader'],
       },
+      {
+        test: /\.(png|jpe?g|gif|svg)$/i,  // Add this rule for images
+        type: 'asset/resource',  // Moves images to the output directory
+      },
     ],
   },
   devtool: "eval-source-map",
