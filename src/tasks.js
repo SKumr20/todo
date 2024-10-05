@@ -16,7 +16,7 @@ export function createTask(name, id, updateIndicator) {
     const checkbox = document.createElement('input');
     checkbox.type = 'checkbox';
     checkbox.id = `task${id}`;
-    checkbox.className = 'h-4 w-4 flex-shrink-0';
+    checkbox.className = 'h-4 w-4 rounded-lg flex-shrink-0';
 
     // label for checkbox
     const label = document.createElement('label');

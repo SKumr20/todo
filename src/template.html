@@ -20,32 +20,18 @@
                 <!--tasks generated in js-->
             </div>    
             <button id="addTaskBtn" class="text-2xl font-extralight text-gray-500 hover:text-black hover:scale-110">+</button>
-            <div id="timeInputModal" class="hidden flex flex-col p-6 absolute gap-4 top-0 right-0 h-36 w-full rounded-2xl shadow-2xl bg-gray-700 bg-opacity-90">
-                <div class="relative max-w-sm">
-                    <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
-                       <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
-                          <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"/>
-                        </svg>
-                    </div>
-                    <input id="datepicker-autohide" datepicker datepicker-autohide type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Select date">
-                </div>
-    
-                <form class="max-w-[8rem] mx-auto">
-                    <div class="relative">
-                        <div class="absolute inset-y-0 end-0 top-0 flex items-center pe-3.5 pointer-events-none">
-                            <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
-                                <path fill-rule="evenodd" d="M2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10S2 17.523 2 12Zm11-4a1 1 0 1 0-2 0v4a1 1 0 0 0 .293.707l3 3a1 1 0 0 0 1.414-1.414L13 11.586V8Z" clip-rule="evenodd"/>
-                            </svg>
-                        </div>
-                        <input type="time" id="time" class="bg-gray-50 border leading-none border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" min="09:00" max="18:00" value="00:00" required />
-                    </div>
-                </form>
+            <div id="timeInputModal" class="hidden flex flex-col p-6 absolute gap-4 top-0 right-0 h-36 w-full rounded-2xl shadow-2xl bg-gray-700 bg-opacity-95">
+                
+                <div class="flex justify-around items-center">
+                    <button id="enterTimeBtn" "submit" class="w-1/3 flex items-center justify-center text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Enter</button>
+                    <button id="cancelTimeBtn" type="submit" class="w-1/3 flex items-center justify-center text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2 text-center dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800">Cancel</button>
+                </div> 
             </div>
         </div>
     </div>
     <div id="taskInput" class="hidden flex flex-col p-6 gap-4 fixed inset-0 mx-auto my-48 h-96 w-64 rounded-2xl shadow-2xl bg-gray-700">
         <div>
-            <label for="taskName" class="block mb-2 text-lg font-medium text-gray-900 dark:text-white">Name</label>
+            <label for="taskName" class="block mb-2 text-lg font-medium text-gray-100 dark:text-white">Name</label>
             <input id="taskName" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="Task Name" required />
         </div>
         <div class="flex justify-around items-center">
@@ -53,8 +39,5 @@
             <button id="cancelBtn" type="submit" class="w-1/3 flex items-center justify-center text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2 text-center dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800">Cancel</button>
         </div>   
     </div>
-
-<script src="../node_modules/flowbite/dist/flowbite.min.js"></script>
-
 </body>
 </html>
