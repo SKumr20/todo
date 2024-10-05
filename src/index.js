@@ -69,3 +69,11 @@ profileBtn.addEventListener('click', () => {
     const profileDropdown = document.getElementById('profile-dropdown');
     profileDropdown.classList.toggle('hidden');
 })
+
+// toggle mobile menu
+
+const mobileMenu = document.getElementById('mobile-nav-btn');
+mobileMenu.addEventListener('click', () => {
+    const mobileDropDown = document.getElementById('mobile-menu');
+    mobileDropDown.classList.toggle('hidden');
+});
