@@ -63,9 +63,9 @@ export function createTask(name, id, updateIndicator) {
         }
     })
 
-    // add function for time button
+    // add function for time button, imported from time.js - for time modal, passes the id and label for each task's time
     timeBtn.addEventListener('click', () => {
-      timeModal(id);
+      timeModal(id, label);
     })
 }
 
