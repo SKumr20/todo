@@ -68,3 +68,4 @@ export function loadTasks(updateIndicator) {
     createTask(task.name, task.id, updateIndicator, false); // Avoid re-saving to local storage
   });
 }
+
