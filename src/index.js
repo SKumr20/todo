@@ -1,12 +1,16 @@
 import './styles.css';
 import 'flowbite';
 
-import { createTask } from './tasks';
+import { createTask, loadTasks } from './tasks';
 
-let taskId = 1;
-let remainingTasks = 1;
+let remainingTasks = 0;
 
-//get all the elements
+// Update taskId to start from the last saved task ID in local storage
+const storedTasks = JSON.parse(localStorage.getItem('tasks')) || [];
+let taskId = storedTasks.length > 0 ? Math.max(...storedTasks.map(task => task.id)) + 1 : 1;
+
+// Load tasks from local storage and update remainingTasks count
+loadTasks(updateIndicator);
 
 const indicator = document.getElementById('indicator');
 const addTaskBtn = document.getElementById('addTaskBtn');
@@ -15,7 +19,8 @@ const enterBtn = document.getElementById('enterBtn');
 const cancelBtn = document.getElementById('cancelBtn');
 const taskNameInput = document.getElementById('taskName');
 
-
+// Initialize remainingTasks based on loaded tasks
+remainingTasks = storedTasks.filter(task => !task.completed).length;
 indicator.innerHTML = remainingTasks;
 
 addTaskBtn.addEventListener('click', () => {
@@ -31,28 +36,22 @@ enterBtn.addEventListener('click', () => {
         remainingTasks++;
         indicator.innerHTML = remainingTasks;
         
-        // reset the values
         taskNameInput.value = '';
         taksInputPopup.classList.add('hidden');
     }
 });
-
-// Hide popup for cancel button
 
 cancelBtn.addEventListener('click', () => {
     taskNameInput.value = '';
     taksInputPopup.classList.add('hidden');
 });
 
-// updateIndicator - updates number of tasks indicator and marks the tasks as completed
-
 function updateIndicator(isChecked, label) {
     if (isChecked) {
         remainingTasks--;
         label.style.textDecoration = 'line-through';
         label.style.opacity = '0.4';
-    }
-    else {
+    } else {
         remainingTasks++;
         label.style.textDecoration = 'none';
         label.style.opacity = '1';
@@ -60,20 +59,12 @@ function updateIndicator(isChecked, label) {
     indicator.innerHTML = remainingTasks;
 }
 
-// Initial loaded task
-createTask('Be Happy', 1, updateIndicator);
-
 // Profile dropdown button
 const profileBtn = document.getElementById('user-menu-button');
 profileBtn.addEventListener('click', () => {
     const profileDropdown = document.getElementById('profile-dropdown');
     profileDropdown.classList.toggle('hidden');
-})
-
-// toggle mobile menu
-
-const mobileMenu = document.getElementById('mobile-nav-btn');
-mobileMenu.addEventListener('click', () => {
-    const mobileDropDown = document.getElementById('mobile-menu');
-    mobileDropDown.classList.toggle('hidden');
 });
+
+// Toggle mobile menu
+const mobileMenu = document.getElementById('mobile-menu-button'); // Assuming you have a button for mobile menu
